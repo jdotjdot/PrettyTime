@@ -1,9 +1,6 @@
 PrettyTime
 ==========
 
-Python PrettyTime - A Python module allowing Rails-style pretty times like t(3).days.ago
---------
-
 Version 0.0.1a
 
 PrettyTime is a small Python package that intends to create a better interface for working with dates and times in Python.  It was inspired by Rails' syntax for dates and times, like:
@@ -58,4 +55,5 @@ Date/Time   | Relative
      * `.from.tomorrow`
      * `.from.next_year`
      * ...etc.
+ + Create `.next` and `.last` method to allows for constructions like `.next.year` and `.last.month`
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well
