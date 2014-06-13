@@ -10,12 +10,12 @@ PrettyTime is a small Python package that intends to create a better interface f
 2.hours.from_now
 ```
 
-Though Python does not allow the same type of built-in monkey-patching, you can get decently close.  PrettyTime currently offers the following:
+Though Python does not allow the same type of built-in monkey-patching, you can get decently close.  An example of what PrettyTime currently offers:
 
 ```python
->>> t(4).hours.from_now
+>>> t(4).hours.from_.now
 datetime.datetime(2014, 6, 7, 3, 51, 51, 422545)
->>> t(1).years.from_today
+>>> t(1).years.from_.today
 datetime.date(2015, 6, 6)
 ```
 
@@ -38,22 +38,30 @@ Because you can't override Python literals, all integers must be wrapped by `t()
 
 Commands currently supported:
 
-Date/Time   | Relative
-------------|----------
-`second(s)` | `ago`
-`minute(s)` | `from_now`
-`hour(s)`   | `from_today`
-`day(s)`    |
-`week(s)`   |
-`month(s)`  |
-`year(s)`   |
+Date/Time   | Relative |               |
+------------|----------|---------------|------------
+`second(s)` | `ago`    | `next`        | `week`
+`minute(s)` | `from_`  | `last`        | `month`
+`hour(s)`   | `before` |  `now`        | `year`
+`day(s)`    | `after`  | `today`       |
+`week(s)`   |          |  `tomorrow`   |
+`month(s)`  |          |  `yesterday`  |
+`year(s)`   |          |               |
+
+Examples:
+
+```python
+>>> from prettytime import *
+>>> t(3).days.from_.next.year
+datetime.date(2015, 6, 15)
+>>> t(4).years.ago
+datetime.date(2010, 6, 12)
+>>> t(10).month.before.last.week
+datetime.date(2013, 8, 5)
+>>> t(7).minutes.after.tomorrow
+datetime.datetime(2014, 6, 13, 23, 57, 44, 38401)
+```
 
 ## Planned changes:
 
- + Change the `.from_now` and `.from_today` methods to separate `.from` and `.today`/`now` methods to allow for a variety of endings:
-     * `.from.today`
-     * `.from.tomorrow`
-     * `.from.next_year`
-     * ...etc.
- + Create `.next` and `.last` method to allows for constructions like `.next.year` and `.last.month`
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well
