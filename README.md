@@ -22,11 +22,13 @@ datetime.date(2015, 6, 6)
 ## Usage
 
 ### Download
-For now, clone the [GitHub repository](https://github.com/jdotjdot/PrettyTime):
+Install from PyPI:
+
+    pip install prettytime
+
+Alternatively, you can clone the [GitHub repository](https://github.com/jdotjdot/PrettyTime):
 
     git clone https://github.com/jdotjdot/PrettyTime
-
-Later releases will be uploaded to `pip`.
 
 ### Import
 
@@ -56,7 +58,7 @@ Examples:
 datetime.date(2015, 6, 15)
 >>> t(4).years.ago
 datetime.date(2010, 6, 12)
->>> t(10).month.before.last.week
+>>> t(10).months.before.last.week
 datetime.date(2013, 8, 5)
 >>> t(7).minutes.after.tomorrow
 datetime.datetime(2014, 6, 13, 23, 57, 44, 38401)
