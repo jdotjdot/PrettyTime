@@ -40,15 +40,15 @@ Because you can't override Python literals, all integers must be wrapped by `t()
 
 Commands currently supported:
 
-Date/Time   | Relative |               |
-------------|----------|---------------|------------
-`second(s)` | `ago`    | `next`        | `week`
-`minute(s)` | `from_`  | `last`        | `month`
-`hour(s)`   | `before` |  `now`        | `year`
-`day(s)`    | `after`  | `today`       |
-`week(s)`   |          |  `tomorrow`   |
-`month(s)`  |          |  `yesterday`  |
-`year(s)`   |          |               |
+Date/Time   | Relative |    Optional   |   Optional |
+------------|----------|---------------|------------|
+`second(s)` | `ago`    | `next`        | `week`     |
+`minute(s)` | `from_`  | `last`        | `month`    |
+`hour(s)`   | `before` |  `now`        | `year`     |
+`day(s)`    | `after`  | `today`       |            |
+`week(s)`   |          |  `tomorrow`   |            |
+`month(s)`  |          |  `yesterday`  |            |
+`year(s)`   |          |               |            |
 
 Examples:
 
