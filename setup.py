@@ -8,5 +8,5 @@ setup(name='prettytime',
       url='https://github.com/jdotjdot/PrettyTime',
       description='PrettyTime is a small Python package that intends to create a better interface for'
                   ' working with dates and times in Python.',
-      install_required=['python-dateutil'],
+      install_requires=['python-dateutil'],
       )
