@@ -45,7 +45,7 @@ class expandeddelta(relativedelta, object):
                                  minute=other.minute or self.minute,
                                  second=other.second or self.second,
                                  microsecond=other.microsecond or self.microsecond)
-        if not isinstance(other, datetime.date):
+        if not isinstance(other, datetime.date) and type(other) is not t:
             raise TypeError("unsupported type for add operation")
         elif self._has_time and not isinstance(other, datetime.datetime):
             other = datetime.datetime.fromordinal(other.toordinal())
@@ -192,6 +192,8 @@ class PrettyDelta2(expandeddelta, DeltaMixin):
     def dt(self, time=False):
         return datetime.datetime if time else datetime.date
 
+    def then(self, date):
+        return self + date
 
     def __getattr__(self, item):
 
@@ -206,6 +208,9 @@ class PrettyDelta2(expandeddelta, DeltaMixin):
                 self._minidirection = self.relativedict[item]
                 self._minidirection_count += 1
                 return self
+
+        elif item == 'then':
+            return self.then
 
         # `self` MUST appear on the left side of the addition
         elif item in self.timedict:
