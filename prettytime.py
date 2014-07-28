@@ -100,24 +100,42 @@ class t(object):
     TIME_LIST = TIME_LIST
     EXPANDED_TIME_LIST = EXPANDED_TIME_LIST
 
-    def __init__(self, num):
-        if num >= 0:
-            self.num = num
+    def __init__(self, num=None):
+        if num is not None:
+            if num >= 0:
+                self.num = num
+            else:
+                raise NegativeError("Cannot accept negative values.  Use 'ago' to go back in time.")
         else:
-            raise NegativeError("Cannot accept negative values.  Use 'ago' to go back in time.")
+            self.num = None
+            self.today = datetime.datetime.today()
 
     def _make(self, timedict):
         return PrettyDelta(**timedict)
 
     def __getattr__(self, attr):
         attr = attr.lower()
-        if attr not in self.EXPANDED_TIME_LIST:
-            raise AttributeError("Attribute '{}' not found.".format(attr))
+        if self.num is not None:
+            if attr not in self.EXPANDED_TIME_LIST:
+                raise AttributeError("Attribute '{}' not found.".format(attr))
+            else:
+                if not attr[-1] == ('s'):
+                    attr += 's'
+                return self._make({attr: self.num})
         else:
-            if not attr[-1] == ('s'):
-                attr += 's'
-            return self._make({attr: self.num})
+            return getattr(self.today, attr)
 
+    def __repr__(self):
+        if self.num is None:
+            return self.today.__repr__()
+        else:
+            super(t, self).__repr__()
+
+    def __str__(self):
+        if self.num is None:
+            return self.today.__str__()
+        else:
+            return super(t, self).__str__()
 
 class PrettyDelta(expandeddelta, DeltaMixin):
 

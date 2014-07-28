@@ -1,7 +1,7 @@
 PrettyTime
 ==========
 
-Version 0.0.1a
+Version 0.0.2a
 
 PrettyTime is a small Python package that intends to create a better interface for working with dates and times in Python.  It was inspired by Rails' syntax for dates and times, like:
 
@@ -17,6 +17,8 @@ Though Python does not allow the same type of built-in monkey-patching, you can 
 datetime.datetime(2014, 6, 7, 3, 51, 51, 422545)
 >>> t(1).years.from_.today
 datetime.date(2015, 6, 6)
+>>> t()
+datetime.datetime(2014, 7, 28, 16, 58, 1, 229448)
 ```
 
 ## Usage
@@ -37,6 +39,8 @@ Alternatively, you can clone the [GitHub repository](https://github.com/jdotjdot
 ### Use
 
 Because you can't override Python literals, all integers must be wrapped by `t()`.  Everything else tries to be normal English.
+
+Just using `t()` by itself with no arguments returns the time now, directly calling `datetime.datetime.now()`.  You can get today's date with `t().date()`.
 
 Commands currently supported:
 
@@ -67,3 +71,6 @@ datetime.datetime(2014, 6, 13, 23, 57, 44, 38401)
 ## Planned changes:
 
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well
+
+## Changelog:
+ + 7/28/2014 - `t()` returns a `datetime.datetime.now()` object
