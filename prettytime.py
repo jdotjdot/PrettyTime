@@ -4,7 +4,7 @@ from operator import itemgetter, neg, pos
 from dateutil.relativedelta import *
 
 TIME_LIST = ['seconds', 'minutes', 'hours', 'days', 'weeks', 'months', 'years']
-LOWER_TIME_LIST = map(itemgetter(slice(None, -1)), TIME_LIST)
+LOWER_TIME_LIST = list(map(itemgetter(slice(None, -1)), TIME_LIST))
 EXPANDED_TIME_LIST = TIME_LIST + LOWER_TIME_LIST
 
 class NegativeError(ValueError): pass
