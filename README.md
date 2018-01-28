@@ -87,4 +87,5 @@ True
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well
 
 ## Changelog:
+ + 1/28/2018 - Python 3 compatibility
  + 7/28/2014 - `t()` returns a `datetime.datetime.now()` object
