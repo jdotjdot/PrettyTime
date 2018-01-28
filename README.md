@@ -1,9 +1,9 @@
 PrettyTime
 ==========
 
-Version 0.0.3a
+Version 0.0.5a
 
-Had enough of dates and times in Python?  Sick of boiler plate like `datetime.date.today() + datetime.timedelta(weeks=12)` when you're just trying to say "three months from now"?
+Had enough of dates and times in Python?  Sick of boilerplate like `datetime.date.today() + datetime.timedelta(weeks=12)` when you're just trying to say "three months from now"?
 
 Welcome to PrettyTime:
 
