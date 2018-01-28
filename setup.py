@@ -1,7 +1,7 @@
 
 from distutils.core import setup
 setup(name='prettytime',
-      version='0.0.4',
+      version='0.0.5',
       py_modules=['prettytime'],
       author='JJ',
       author_email='JJ@jdotjdot.com',
