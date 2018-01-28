@@ -14,7 +14,7 @@ def expanddelta(function):
     def wrapper(*args):
         not_allowed_list = ['_has_time']
         rd = function(*args)
-        return expandeddelta(**{key: value for key, value in rd.__dict__.iteritems() if key not in not_allowed_list})
+        return expandeddelta(**{key: value for key, value in rd.__dict__.items() if key not in not_allowed_list})
     return wrapper
 
 class expandeddelta(relativedelta, object):
