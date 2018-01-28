@@ -158,6 +158,11 @@ class PrettyDelta(expandeddelta, DeltaMixin):
         return self.get_delta2(neg)
     Before = before
 
+    @property
+    def in_(self):
+        return
+    In = in_
+
 class PrettyDelta2(expandeddelta, DeltaMixin):
 
     # Will make calculation with (magnitude, order, direction, [magnitude, order, direction])

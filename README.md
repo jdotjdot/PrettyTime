@@ -3,6 +3,14 @@ PrettyTime
 
 Version 0.0.3a
 
+Had enough of dates and times in Python?  Sick of boiler plate like `datetime.date.today() + datetime.timedelta(weeks=12)` when you're just trying to say "three months from now"?
+
+Welcome to PrettyTime:
+
+```python
+t(3).months.from_.today
+``` 
+
 PrettyTime is a small Python package that intends to create a better interface for working with dates and times in Python.  It was inspired by Rails' syntax for dates and times, like:
 
 ```ruby
