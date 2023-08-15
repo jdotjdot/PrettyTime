@@ -86,6 +86,19 @@ True
 
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well
 
+## Pretty Printing
+
+You can call the `._print()` method on any PrettyTime object to get a pretty-printed string of the time. Here are some examples:
+
+```python
+>>> t(3).days._print()
+"3 days"
+>>> t(2).hours.from_.now._print()
+"2 hours from now"
+>>> t(1).week.ago._print()
+"1 week ago"
+```
+
 ## Changelog:
  + 1/28/2018 - Python 3 compatibility
  + 7/28/2014 - `t()` returns a `datetime.datetime.now()` object
