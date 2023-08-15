@@ -88,7 +88,7 @@ True
 
 ## Pretty Printing
 
-You can call the `._print()` method on any PrettyTime object to get a pretty-printed string of the time. Here are some examples:
+You can call the `._print()` method on any PrettyTime object to get a pretty-printed string of the time. The method has an optional parameter `print_stdout` that defaults to `False`. If `print_stdout` is `True`, the method will print the string to the standard output. Otherwise, it will return the string. Here are some examples:
 
 ```python
 >>> t(3).days._print()
@@ -97,6 +97,12 @@ You can call the `._print()` method on any PrettyTime object to get a pretty-pri
 "2 hours from now"
 >>> t(1).week.ago._print()
 "1 week ago"
+>>> t(3).days._print(print_stdout=True)
+3 days
+>>> t(2).hours.from_.now._print(print_stdout=True)
+2 hours from now
+>>> t(1).week.ago._print(print_stdout=True)
+1 week ago
 ```
 
 ## Changelog:
