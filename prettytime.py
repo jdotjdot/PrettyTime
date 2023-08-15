@@ -113,8 +113,8 @@ class t(object):
     def _print(self):
         if datetime.datetime.today() < self.today:
             return str(self.num) + " " + self.attr + " from now"
-        else:
-            return str(self.num) + " " + self.attr + " ago"
+        elif datetime.datetime.today() == self.today:
+            return "today"
         else:
             return str(self.num) + " " + self.attr + " ago"
 
