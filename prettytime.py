@@ -100,6 +100,12 @@ class t(object):
     TIME_LIST = TIME_LIST
     EXPANDED_TIME_LIST = EXPANDED_TIME_LIST
 
+    def _print(self):
+        if datetime.datetime.today() < self.today:
+            return str(self.num) + " " + self.attr + " from now"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
+
     def __init__(self, num=None):
         if num is not None:
             if num >= 0:
@@ -139,6 +145,12 @@ class t(object):
 
 class PrettyDelta(expandeddelta, DeltaMixin):
 
+    def _print(self):
+        if datetime.datetime.today() < self.today:
+            return str(self.num) + " " + self.attr + " from now"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
+
     @property
     def ago(self):
         return self._order().today() - self
@@ -164,6 +176,12 @@ class PrettyDelta(expandeddelta, DeltaMixin):
     In = in_
 
 class PrettyDelta2(expandeddelta, DeltaMixin):
+
+    def _print(self):
+        if datetime.datetime.today() < self.today:
+            return str(self.num) + " " + self.attr + " from now"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
 
     # Will make calculation with (magnitude, order, direction, [magnitude, order, direction])
 
