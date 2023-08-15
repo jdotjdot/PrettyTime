@@ -82,6 +82,18 @@ datetime.date(2015, 2, 5)
 True
 ```
 
+## Pretty-Printing Time
+
+The `._print()` method can be used to get a string representation of the PrettyTime object in a human-readable format. This method returns a string that lists the time units (seconds, minutes, hours, days, weeks, months, years) that are not zero in the PrettyTime object.
+
+Example:
+
+```python
+>>> from prettytime import t
+>>> print(t(3).days._print())
+'3 days'
+```
+
 ## Planned changes:
 
  + Add [`django-pretty-times`](https://pypi.python.org/pypi/django-pretty-times/0.1.0)-like functionality to allow pretty printing as well

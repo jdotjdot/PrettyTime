@@ -110,6 +110,14 @@ class t(object):
             self.num = None
             self.today = datetime.datetime.today()
 
+    def _print(self):
+        if datetime.datetime.today() < self.today:
+            return str(self.num) + " " + self.attr + " from now"
+        elif datetime.datetime.today() == self.today:
+            return "today"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
+
     def _make(self, timedict):
         return PrettyDelta(**timedict)
 
