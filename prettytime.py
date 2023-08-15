@@ -111,8 +111,12 @@ class t(object):
             self.today = datetime.datetime.today()
 
     def _print(self):
-        time_units = [attr for attr in dir(self) if attr in self.TIME_LIST and getattr(self, attr) != 0]
-        return ', '.join(f'{getattr(self, unit)} {unit}' for unit in time_units)
+        if datetime.datetime.today() < self.today:
+            return str(self.num) + " " + self.attr + " from now"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
+        else:
+            return str(self.num) + " " + self.attr + " ago"
 
     def _make(self, timedict):
         return PrettyDelta(**timedict)
