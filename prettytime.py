@@ -110,6 +110,10 @@ class t(object):
             self.num = None
             self.today = datetime.datetime.today()
 
+    def _print(self):
+        time_units = [attr for attr in dir(self) if attr in self.TIME_LIST and getattr(self, attr) != 0]
+        return ', '.join(f'{getattr(self, unit)} {unit}' for unit in time_units)
+
     def _make(self, timedict):
         return PrettyDelta(**timedict)
 
